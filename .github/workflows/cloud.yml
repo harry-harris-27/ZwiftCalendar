@@ -2,6 +2,10 @@ name: CI - Cloud
 
 # Controls when the action will run. 
 on:
+  push:
+    paths: 
+      - 'cloud/**'
+    branches: [main]
   release:
     types: [published]
 
