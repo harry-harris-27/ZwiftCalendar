@@ -93,6 +93,12 @@ const getCalendar = functions.https.onRequest(async(req: functions.https.Request
     if (isNaN(year) || year <= 0) year = current.getFullYear();
     if (isNaN(month) || month <= 0) month = current.getMonth() + 1;
 
+	if (year <= 2019) 
+	{
+		year = 2019;
+		if (month < 11) month = 11;
+	}
+
     let calendar: CalendarMonth | null = null;
 
     const calendarId = String((year * 100) + month);

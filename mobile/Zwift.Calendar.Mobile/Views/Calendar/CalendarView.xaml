@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Zwift.Calendar.Mobile.Views.Calendar.CalendarView"
+             xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             Title="{Binding DisplayName, Mode=OneWay}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding TodayCommand}" Text="Today" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <RefreshView Command="{Binding RefreshCommand, Mode=OneWay}"
+                     IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
+            <StackLayout VerticalOptions="Start">
+                <plugin:Calendar Events="{Binding Events}" 
+                                 ShowYearPicker="False" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 MonthYear="{Binding MonthYear, Mode=TwoWay}"
+                                 SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
+                                 MinimumDate="{Binding MinimumDate, Mode=OneWay}">
+                    <plugin:Calendar.EventTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </plugin:Calendar.EventTemplate>
+                </plugin:Calendar>
+            </StackLayout>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>
