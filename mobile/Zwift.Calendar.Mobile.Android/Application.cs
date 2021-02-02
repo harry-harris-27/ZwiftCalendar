@@ -19,7 +19,9 @@ namespace Zwift.Calendar.Mobile.Droid
     public class Application : CaliburnApplication, IActivityLifecycleCallbacks
     {
 
-        private readonly AppBootstrapper bootstrapper = new AppBootstrapper();
+        private const string AppCenterSecret = "d12eef83-54c6-402d-bba2-7d085fc51fea";
+
+        private readonly AppBootstrapper bootstrapper = new AppBootstrapper(AppCenterSecret);
 
 
         public Application(IntPtr javaReference, JniHandleOwnership transfer)

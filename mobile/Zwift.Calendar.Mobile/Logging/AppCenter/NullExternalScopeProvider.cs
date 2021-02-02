@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace Zwift.Calendar.Mobile.Logging
+namespace Microsoft.Extensions.Logging.AppCenter
 {
     /// <summary>
     /// Scope provider that does nothing

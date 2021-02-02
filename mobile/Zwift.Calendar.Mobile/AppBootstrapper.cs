@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.AppCenter;
 using Microsoft.Extensions.Logging.Debug;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,6 @@ using System.Composition;
 using System.Composition.Convention;
 using System.Composition.Hosting;
 using System.Reflection;
-using System.Text;
 using Xamarin.Essentials;
 using Zwift.Calendar.Mobile.Composition;
 
@@ -15,10 +15,18 @@ namespace Zwift.Calendar.Mobile
     public class AppBootstrapper
     {
 
-        private CompositionHost container;
+        private readonly string appCenterSecret;
 
         private readonly ILoggerFactory loggerFactory = new LoggerFactory();
         private ILogger<AppBootstrapper> logger;
+
+        private CompositionHost container;
+
+
+        public AppBootstrapper(string appCenterSecret)
+        {
+            this.appCenterSecret = appCenterSecret ?? throw new ArgumentNullException(nameof(appCenterSecret));
+        }
 
         
         public void Configure()
@@ -28,7 +36,7 @@ namespace Zwift.Calendar.Mobile
 #else
             loggerFactory.AddAppCenter(options => 
             {
-                options.AppCenterAndriodSecret = "d12eef83-54c6-402d-bba2-7d085fc51fea";
+                options.AppCenterSecret = appCenterSecret;
                 options.AppCenterLogLevel = Microsoft.AppCenter.LogLevel.Warn;
             });
 #endif

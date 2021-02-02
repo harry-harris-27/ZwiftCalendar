@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Zwift.Calendar.Mobile.Logging
+namespace Microsoft.Extensions.Logging.AppCenter
 {
     internal class NullScope : IDisposable
     {
