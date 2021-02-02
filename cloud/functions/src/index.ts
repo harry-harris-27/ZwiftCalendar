@@ -10,6 +10,7 @@ admin.initializeApp();
 interface World {
   name: string;
   link: string;
+  color: string;
 }
 
 interface CalendarDay {
@@ -67,9 +68,11 @@ const scrapeCalendar = async (year: number, month: number) : Promise<CalendarMon
     $(elem).find(".calnk-box").each((j, worldElem) => {
       const name = $(worldElem).find('.event-title').text();
       const link = $(worldElem).find('a').attr('href') ?? '';
+      const color = $(worldElem).find('.event-title').css("color");
       calendarDay.worlds.push({
         name: name,
-        link: link
+        link: link,
+        color: color
       });
     });
 
