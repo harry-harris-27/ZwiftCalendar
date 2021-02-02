@@ -13,12 +13,13 @@
                      IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
             <StackLayout VerticalOptions="Start">
                 <plugin:Calendar Events="{Binding Events}" 
-                                 ShowYearPicker="False" 
-                                 HorizontalOptions="FillAndExpand"
-                                 VerticalOptions="FillAndExpand"
                                  MonthYear="{Binding MonthYear, Mode=TwoWay}"
                                  SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
-                                 MinimumDate="{Binding MinimumDate, Mode=OneWay}">
+                                 MinimumDate="{Binding MinimumDate, Mode=OneWay}"
+                                 AnimateCalendar="True"
+                                 ShowYearPicker="False" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
                     <plugin:Calendar.EventTemplate>
                         <DataTemplate>
                             <StackLayout>

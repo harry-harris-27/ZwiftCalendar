@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using Xamarin.Plugin.Calendar.Interfaces;
 
 namespace Zwift.Calendar.Mobile.Models.Calendar
 {
@@ -19,5 +20,11 @@ namespace Zwift.Calendar.Mobile.Models.Calendar
         /// </summary>
         [JsonPropertyName("link")]
         public string Link { get; set; }
+
+        /// <summary>
+        /// Gets or sets the color associated with this world.
+        /// </summary>
+        [JsonPropertyName("color")]
+        public string Color { get; set; }
     }
 }
