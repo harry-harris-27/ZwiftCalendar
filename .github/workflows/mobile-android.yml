@@ -4,6 +4,7 @@ on:
   push:
     paths: 
       - 'mobile/**'
+      - 'mobile/*.iOS*/**'
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -23,4 +24,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Zwift.Calendar.apk
-        path: mobile/Zwift.Calendar.Mobile.Android/bin/Release/*.apk
+        path: mobile/Zwift.Calendar.Mobile.Android/bin/Release/
