@@ -1,0 +1,26 @@
+name: CI - Mobile
+
+on:
+  push:
+    paths: 
+      - 'mobile/**'
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: window-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Build Android project
+      run: msbuild mobile/Zwift.Calendar.Mobile.Android/Zwift.Calendar.Mobile.Android.csproj /restore:true /property:Configuration=Release 
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: Zwift.Calendar.apk
+        path: mobile/Zwift.Calendar.Mobile.Android/bin/Release/*.apk
