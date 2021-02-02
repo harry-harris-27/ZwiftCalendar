@@ -28,7 +28,7 @@ namespace Zwift.Calendar.Mobile
 #else
             loggerFactory.AddAppCenter(options => 
             {
-                options.AppCenterAndriodSecret = "dfda0a62-9337-4471-990d-6828f75da9ea";
+                options.AppCenterAndriodSecret = "d12eef83-54c6-402d-bba2-7d085fc51fea";
                 options.AppCenterLogLevel = Microsoft.AppCenter.LogLevel.Warn;
             });
 #endif
