@@ -19,9 +19,9 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
     - name: Build Android project
-      run: msbuild mobile/Zwift.Calendar.Mobile.Android/Zwift.Calendar.Mobile.Android.csproj /restore:true /property:Configuration=Release 
+      run: msbuild mobile/Zwift.Calendar.Mobile.Android/Zwift.Calendar.Mobile.Android.csproj /target:SignAndroidPackage /restore:true /property:Configuration=Release 
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
         name: Zwift.Calendar.apk
-        path: mobile/Zwift.Calendar.Mobile.Android/bin/Release/
+        path: mobile/Zwift.Calendar.Mobile.Android/bin/Release/*Signed.apk
