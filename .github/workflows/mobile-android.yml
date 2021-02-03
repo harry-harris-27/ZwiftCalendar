@@ -44,7 +44,7 @@ jobs:
         appName: HarryHarris/Zwift-Calendar
         token: ${{ secrets.APP_CENTER_TOKEN }}  
         group: Tests
-        file: ZwiftCalendar.apk
+        file: "*.apk"
         notifyTesters: true
         debug: false      
         releaseNotes: "Hello World"  
