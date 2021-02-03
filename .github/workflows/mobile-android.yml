@@ -36,6 +36,8 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: ZwiftCalendar.apk
+    - name: List content
+      run: ls
     - name: Upload to Visual Studio App Centre
       uses: wzieba/AppCenter-Github-Action@v1
       with:
