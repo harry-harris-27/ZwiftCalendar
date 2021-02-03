@@ -5,6 +5,7 @@ on:
     paths: 
       - 'mobile/**'
       - 'mobile/*.iOS*/**'
+      - '.github/workflows/mobile-android.yml'
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -39,7 +40,7 @@ jobs:
       with:
         name: env.APK_ARTIFACT
     - name: Upload to Visual Studio App Centre
-      uses: wzieba/AppCenter-Github-Action@V1
+      uses: wzieba/AppCenter-Github-Action@v1
       with:
         appName: HarryHarris/Zwift-Calendar
         token: ${{ secrets.APP_CENTER_TOKEN }}  
