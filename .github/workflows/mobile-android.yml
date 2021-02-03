@@ -11,7 +11,6 @@ on:
   workflow_dispatch:
 
 env:
-  CONFIGURATION: Release
   APK_ARTIFACT: ZwiftCalendar.apk 
 
 jobs:
@@ -23,7 +22,7 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
     - name: Build Android project
-      run: msbuild mobile/Zwift.Calendar.Mobile.Android/Zwift.Calendar.Mobile.Android.csproj /target:SignAndroidPackage /restore:true /property:Configuration=env.CONFIGURATION 
+      run: msbuild mobile/Zwift.Calendar.Mobile.Android/Zwift.Calendar.Mobile.Android.csproj /target:SignAndroidPackage /restore:true /property:Configuration=Release 
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
