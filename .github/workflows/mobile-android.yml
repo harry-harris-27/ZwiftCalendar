@@ -11,9 +11,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  APK_ARTIFACT: ZwiftCalendar.apk 
-
 jobs:
   build:
     runs-on: windows-latest
@@ -27,7 +24,7 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: env.APK_ARTIFACT
+        name: ZwiftCalendar.apk
         path: mobile/Zwift.Calendar.Mobile.Android/bin/Release/*Signed.apk
         
   publish:
@@ -38,14 +35,14 @@ jobs:
     - name: Download APK artifact
       uses: actions/download-artifact@v2
       with:
-        name: env.APK_ARTIFACT
+        name: ZwiftCalendar.apk
     - name: Upload to Visual Studio App Centre
       uses: wzieba/AppCenter-Github-Action@v1
       with:
         appName: HarryHarris/Zwift-Calendar
         token: ${{ secrets.APP_CENTER_TOKEN }}  
         group: Tests
-        file: "$APK_ARTIFACT"
+        file: ZwiftCalendar.apk
         notifyTesters: true
         debug: false      
         releaseNotes: "Hello World"  
